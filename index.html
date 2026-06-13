@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Financial Security Assessment — Inner Alchemy Wealth System</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#0a0a0a;--dark:#111;--card:#161616;--border:#2a2a2a;--bl:#333;--gold:#C9A84C;--gl:#e8c97e;--gd:#8a6e2f;--text:#f0ece4;--muted:#7a7670;--muted2:#9a9690;--red:#e74c3c;--green:#2ecc71;--amber:#e0a030}
+body{background:var(--black);color:var(--text);font-family:'Jost',sans-serif;font-weight:300;min-height:100vh}
+.hdr{background:var(--dark);border-bottom:1px solid var(--border);padding:16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.brand{display:flex;align-items:center;gap:12px}
+.mono{width:42px;height:42px;border:1px solid var(--gd);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.mono svg{width:28px;height:28px}
+.bname{font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:0.12em;color:var(--gold);text-transform:uppercase}
+.bsub{font-size:9px;letter-spacing:0.18em;color:var(--muted);text-transform:uppercase}
+.hdr-btns{display:flex;gap:8px;flex-wrap:wrap}
+.btn-wa{display:flex;align-items:center;gap:6px;background:#1a5c2a;color:#fff;border:none;padding:8px 14px;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;text-decoration:none}
+.btn-em{display:flex;align-items:center;gap:6px;background:transparent;color:var(--gold);border:1px solid var(--gd);padding:8px 12px;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;text-decoration:none}
+.strip{background:var(--gold);padding:7px 32px;font-size:10px;letter-spacing:0.18em;color:var(--black);font-weight:500;text-transform:uppercase;display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px}
+.hero{background:var(--dark);padding:40px 32px 36px;border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.hero-bg{position:absolute;right:-40px;top:-40px;width:300px;height:300px;opacity:0.05;pointer-events:none}
+.hero-eyebrow{font-size:9px;letter-spacing:0.3em;color:var(--gold);text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.hero-eyebrow::after{content:'';width:60px;height:1px;background:var(--gd)}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:300;line-height:1.05}
+.hero-title em{font-style:italic;color:var(--gold)}
+.hero-sub{font-size:13px;color:var(--muted2);margin-top:14px;max-width:480px;line-height:1.75}
+.progress-wrap{height:2px;background:var(--border);margin-top:28px}
+.progress-fill{height:2px;background:var(--gold);transition:width 0.4s}
+.snav{background:var(--dark);border-bottom:1px solid var(--border);padding:0 32px;display:flex;overflow-x:auto}
+.stab{padding:14px 18px;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;display:flex;align-items:center;gap:7px;background:none;border-top:none;border-left:none;border-right:none;font-family:'Jost',sans-serif;transition:color 0.2s}
+.stab.active{color:var(--gold);border-bottom-color:var(--gold)}
+.stab.done{color:var(--muted2)}
+.snum{width:17px;height:17px;border:1px solid currentColor;display:inline-flex;align-items:center;justify-content:center;font-size:9px;font-weight:500;flex-shrink:0}
+.stab.active .snum{background:var(--gold);border-color:var(--gold);color:var(--black)}
+.stab.done .snum{background:var(--gd);border-color:var(--gd);color:var(--black)}
+.main{max-width:720px;margin:0 auto;padding:36px 32px 60px}
+.page{display:none}.page.active{display:block}
+.scard{background:var(--card);border:1px solid var(--border);padding:24px;margin-bottom:16px}
+.scard-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--border);flex-wrap:wrap;gap:8px}
+.scard-title{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:400}
+.scard-tag{font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gd);padding:3px 9px;white-space:nowrap}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field{display:flex;flex-direction:column;gap:5px}
+.field label{font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted)}
+.field input,.field select{background:#1a1a1a;border:1px solid var(--bl);color:var(--text);padding:9px 11px;font-family:'Jost',sans-serif;font-size:13px;font-weight:300;outline:none;width:100%;-webkit-appearance:none;appearance:none;transition:border 0.2s}
+.field input:focus,.field select:focus{border-color:var(--gd)}
+.field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%237a7670' fill='none' stroke-width='1.5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 11px center;padding-right:28px}
+.hint{font-size:11px;color:var(--muted);margin-bottom:14px;line-height:1.7}
+.divider{border:none;border-top:1px solid var(--border);margin:14px 0}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin-top:20px;padding-top:18px;border-top:1px solid var(--border)}
+.btn-next{background:var(--gold);color:var(--black);border:none;padding:11px 26px;font-family:'Jost',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;cursor:pointer}
+.btn-next:hover{background:var(--gl)}
+.btn-back{background:transparent;color:var(--muted);border:1px solid var(--bl);padding:11px 18px;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer}
+/* INS QUESTION ROWS */
+.ins-q{display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--border);gap:12px;flex-wrap:wrap}
+.ins-q:last-child{border:none}
+.ins-q-left{flex:1;min-width:200px}
+.ins-q-title{font-size:13px;color:var(--text);margin-bottom:3px}
+.ins-q-sub{font-size:11px;color:var(--muted);line-height:1.6}
+.ins-q-right{flex-shrink:0;min-width:160px}
+/* GAP CARDS */
+.gap-card{border:1px solid var(--border);padding:16px 18px;margin-bottom:10px;display:flex;gap:14px;align-items:flex-start}
+.gap-icon{width:32px;height:32px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;margin-top:2px}
+.status-ok{border-color:#2a4a2a;background:#0a160e}
+.status-warn{border-color:#4a3a10;background:#16110a}
+.status-bad{border-color:#4a1a1a;background:#160a0a}
+.gap-title{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:5px}
+.status-ok .gap-title{color:var(--green)}
+.status-warn .gap-title{color:var(--amber)}
+.status-bad .gap-title{color:var(--red)}
+.gap-advice{font-size:12px;color:var(--muted2);line-height:1.75}
+.badge{display:inline-block;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;padding:2px 8px;border:1px solid;margin-bottom:6px}
+.badge-ok{border-color:var(--green);color:var(--green)}
+.badge-warn{border-color:var(--amber);color:var(--amber)}
+.badge-bad{border-color:var(--red);color:var(--red)}
+/* SCORE */
+.score-ring{width:80px;height:80px;margin:0 auto 16px;position:relative}
+.score-ring svg{width:80px;height:80px}
+.score-text{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.score-num{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--gold)}
+.score-label{font-size:8px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted)}
+.summary-strip{display:flex;gap:1px;background:var(--border);margin-bottom:16px}
+.sstrip-cell{background:#111;padding:14px 16px;flex:1;text-align:center}
+.sstrip-label{font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+.sstrip-val{font-family:'Cormorant Garamond',serif;font-size:20px}
+.sv-ok{color:var(--green)}.sv-warn{color:var(--amber)}.sv-bad{color:var(--red)}
+.cta{background:linear-gradient(135deg,#161208,#111);border:1px solid var(--gd);padding:24px;text-align:center;margin-top:16px}
+.cta-title{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--gold);margin-bottom:5px}
+.cta-sub{font-size:12px;color:var(--muted2);margin-bottom:14px}
+.cta-btns{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.cta-gold{background:var(--gold);color:var(--black);border:none;padding:11px 22px;font-family:'Jost',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:7px}
+.cta-outline{background:transparent;color:var(--gold);border:1px solid var(--gd);padding:11px 20px;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:7px}
+.footer{background:var(--dark);border-top:1px solid var(--border);padding:24px 32px}
+.footer-inner{max-width:720px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px}
+.fname{font-family:'Cormorant Garamond',serif;font-size:14px;letter-spacing:0.12em;color:var(--gold);text-transform:uppercase}
+.fsub{font-size:9px;letter-spacing:0.15em;color:var(--muted);text-transform:uppercase}
+.fcon{font-size:11px;color:var(--muted);line-height:1.9}
+.fcon a{color:var(--muted2);text-decoration:none}
+.disc{font-size:9px;color:#3a3a36;max-width:720px;margin:12px auto 0;padding:0 32px 16px;line-height:1.7}
+@media(max-width:580px){.main{padding:20px 16px 40px}.hdr{padding:14px 16px}.hero{padding:28px 16px 24px}.snav{padding:0 16px}.hero-title{font-size:30px}.grid2{grid-template-columns:1fr}.footer{padding:20px 16px}.strip{padding:7px 16px}.disc{padding:0 16px 16px}}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="brand">
+    <div class="mono">
+      <svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="14" stroke="#C9A84C" stroke-width="0.8"/><circle cx="16" cy="16" r="9" stroke="#8a6e2f" stroke-width="0.6"/><path d="M8 16 Q16 6 24 16 Q16 26 8 16Z" stroke="#C9A84C" stroke-width="0.8" fill="none"/><circle cx="16" cy="16" r="2" fill="#C9A84C" opacity="0.7"/></svg>
+    </div>
+    <div><div class="bname">Inner Alchemy Wealth System</div><div class="bsub">Aditya Sinha · ARN 286556</div></div>
+  </div>
+  <div class="hdr-btns">
+    <a href="https://wa.me/917055020008" class="btn-wa" target="_blank">
+      <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp
+    </a>
+    <a href="mailto:sinha.aditya@live.com" class="btn-em">Email Advisor</a>
+  </div>
+</header>
+<div class="strip"><span>Financial Security Self-Assessment — Term · Health · Goal-Plan · Critical Illness</span><span>ARN 286556</span></div>
+
+<section class="hero">
+  <svg class="hero-bg" viewBox="0 0 300 300" fill="none"><circle cx="150" cy="150" r="130" stroke="#C9A84C" stroke-width="1"/><circle cx="150" cy="150" r="90" stroke="#C9A84C" stroke-width="0.6"/><path d="M20 150 Q150 20 280 150 Q150 280 20 150Z" stroke="#C9A84C" stroke-width="0.8" fill="none"/></svg>
+  <div class="hero-eyebrow">Inner Alchemy Wealth System</div>
+  <div class="hero-title">Is your family truly <em>protected</em>?</div>
+  <div class="hero-sub">A 3-minute check to reveal gaps in your insurance safety net — and exactly what to do about them.</div>
+  <div class="progress-wrap"><div class="progress-fill" id="prog" style="width:33%"></div></div>
+</section>
+
+<nav class="snav" id="snav">
+  <button class="stab active" data-p="0"><span class="snum">1</span>About You</button>
+  <button class="stab" data-p="1"><span class="snum">2</span>Your Cover</button>
+  <button class="stab" data-p="2"><span class="snum">3</span>Gap &amp; Advisory</button>
+</nav>
+
+<main class="main">
+
+  <!-- SHEET 1: ABOUT YOU -->
+  <div class="page active" id="page-0">
+    <div class="scard">
+      <div class="scard-hdr"><span class="scard-title">Tell us about yourself</span><span class="scard-tag">Sheet 1 of 3</span></div>
+      <p class="hint">This helps us calculate how much cover you actually need vs what you have.</p>
+      <div class="grid2">
+        <div class="field"><label>Your name</label><input id="name" placeholder="e.g. Vikram Singh"/></div>
+        <div class="field"><label>Your age</label><input id="age" type="number" min="21" max="65" placeholder="e.g. 38"/></div>
+        <div class="field"><label>Monthly income (₹)</label><input id="income" type="number" placeholder="e.g. 100000"/></div>
+        <div class="field"><label>Number of dependants</label>
+          <select id="deps"><option value="1">1 (spouse only)</option><option value="2">2</option><option value="3">3</option><option value="4">4 or more</option></select>
+        </div>
+        <div class="field"><label>Do you have a home loan?</label>
+          <select id="homeloan"><option value="no">No</option><option value="yes">Yes</option></select>
+        </div>
+        <div class="field"><label>Home loan outstanding (₹)</label><input id="loanamt" type="number" placeholder="0" value="0"/></div>
+      </div>
+    </div>
+    <div class="nav-row"><span style="font-size:10px;color:var(--muted);letter-spacing:0.1em">SHEET 1 / 3</span><button class="btn-next" onclick="goTo(1)">Next →</button></div>
+  </div>
+
+  <!-- SHEET 2: YOUR COVER -->
+  <div class="page" id="page-1">
+    <div class="scard">
+      <div class="scard-hdr"><span class="scard-title">What cover do you currently have?</span><span class="scard-tag">Sheet 2 of 3</span></div>
+      <p class="hint">Just select from the dropdown — no policy numbers or premium amounts needed.</p>
+
+      <div class="ins-q">
+        <div class="ins-q-left">
+          <div class="ins-q-title">Term Life Insurance</div>
+          <div class="ins-q-sub">Pure protection policy — pays your family if something happens to you</div>
+        </div>
+        <div class="ins-q-right field">
+          <label>Do you have it?</label>
+          <select id="term">
+            <option value="none">No, I don't have one</option>
+            <option value="low">Yes — cover below ₹50 lakhs</option>
+            <option value="mid">Yes — cover ₹50L to ₹1 crore</option>
+            <option value="high">Yes — cover above ₹1 crore</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="ins-q">
+        <div class="ins-q-left">
+          <div class="ins-q-title">Health / Mediclaim Insurance</div>
+          <div class="ins-q-sub">Covers hospitalisation bills for you and your family</div>
+        </div>
+        <div class="ins-q-right field">
+          <label>Do you have it?</label>
+          <select id="health">
+            <option value="none">No cover</option>
+            <option value="emp">Only employer cover</option>
+            <option value="low">Personal — below ₹5 lakhs</option>
+            <option value="mid">Personal — ₹5L to ₹15L</option>
+            <option value="high">Personal — above ₹15 lakhs</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="ins-q">
+        <div class="ins-q-left">
+          <div class="ins-q-title">Goal-Plan / Child Insurance</div>
+          <div class="ins-q-sub">Insurance-linked savings plan for child education or marriage milestone</div>
+        </div>
+        <div class="ins-q-right field">
+          <label>Do you have it?</label>
+          <select id="goalplan">
+            <option value="none">No</option>
+            <option value="yes_low">Yes — below ₹10 lakhs maturity</option>
+            <option value="yes_mid">Yes — ₹10L to ₹25L maturity</option>
+            <option value="yes_high">Yes — above ₹25 lakhs maturity</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="ins-q">
+        <div class="ins-q-left">
+          <div class="ins-q-title">Critical Illness Cover</div>
+          <div class="ins-q-sub">Lump sum payout on diagnosis of cancer, heart attack, stroke etc. — covers income loss</div>
+        </div>
+        <div class="ins-q-right field">
+          <label>Do you have it?</label>
+          <select id="critical">
+            <option value="none">No</option>
+            <option value="low">Yes — below ₹10 lakhs</option>
+            <option value="high">Yes — above ₹10 lakhs</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="ins-q">
+        <div class="ins-q-left">
+          <div class="ins-q-title">Personal Accident Cover</div>
+          <div class="ins-q-sub">Pays in case of disability or accidental death — often overlooked</div>
+        </div>
+        <div class="ins-q-right field">
+          <label>Do you have it?</label>
+          <select id="accident">
+            <option value="none">No</option>
+            <option value="yes">Yes</option>
+          </select>
+        </div>
+      </div>
+
+    </div>
+    <div class="nav-row"><button class="btn-back" onclick="goTo(0)">← Back</button><button class="btn-next" onclick="analyze();goTo(2)">See My Gaps →</button></div>
+  </div>
+
+  <!-- SHEET 3: GAP & ADVISORY -->
+  <div class="page" id="page-2">
+    <div class="scard">
+      <div class="scard-hdr"><span class="scard-title">Your financial security report</span><span class="scard-tag">Sheet 3 of 3</span></div>
+      <div class="summary-strip" id="summary-strip"></div>
+      <div id="gap-cards"></div>
+    </div>
+    <div class="cta">
+      <div class="cta-title">Don't leave your family exposed</div>
+      <div class="cta-sub">Talk to Aditya Sinha to fix your insurance gaps today — it takes less than 30 minutes.</div>
+      <div class="cta-btns">
+        <a href="https://wa.me/917055020008?text=Hi%20Aditya%2C%20I%20completed%20the%20Financial%20Security%20Assessment%20and%20need%20help%20fixing%20my%20insurance%20gaps." class="cta-gold" target="_blank">
+          <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Fix My Gaps — WhatsApp Now
+        </a>
+        <a href="mailto:sinha.aditya@live.com?subject=Financial Security Assessment — Please help me fix my insurance gaps" class="cta-outline">Email for Callback</a>
+      </div>
+    </div>
+    <div class="nav-row"><button class="btn-back" onclick="goTo(1)">← Back</button><button class="btn-next" onclick="window.print()">Print / Save</button></div>
+  </div>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div><div class="fname">Inner Alchemy Wealth System</div><div class="fsub">Transforming clarity into lasting wealth</div></div>
+    <div class="fcon"><div>Aditya Sinha — Founder &amp; Advisor</div><div>ARN: 286556</div><div><a href="mailto:sinha.aditya@live.com">sinha.aditya@live.com</a></div><div><a href="https://wa.me/917055020008">+91 70550 20008</a></div></div>
+  </div>
+</footer>
+<div class="disc">Disclaimer: For educational purposes only. Not financial or insurance advice. Please consult a licensed advisor before making any insurance decisions. AMFI Registered Distributor — ARN 286556.</div>
+
+<script>
+function getV(id,def=0){const el=document.getElementById(id);return el?(parseFloat(el.value)||def):def;}
+function getS(id,def=''){const el=document.getElementById(id);return el?el.value:def;}
+function fmt(n){return '₹'+Math.round(n).toLocaleString('en-IN')}
+
+function analyze(){
+  const nm=getS('name')||'You';
+  const age=getV('age',35);
+  const income=getV('income',60000);
+  const deps=getV('deps',2);
+  const loanAmt=getV('loanamt',0);
+  const annualIncome=income*12;
+  const termVal=getS('term','none');
+  const healthVal=getS('health','none');
+  const goalVal=getS('goalplan','none');
+  const criticalVal=getS('critical','none');
+  const accidentVal=getS('accident','none');
+
+  const recTerm=Math.max(annualIncome*15, loanAmt>0?annualIncome*15+loanAmt:0);
+  const recHealth=deps>=3?2000000:1500000;
+
+  let gaps=0,oks=0;
+  let cards='';
+
+  // TERM INSURANCE
+  function termStatus(){
+    if(termVal==='none') return 'bad';
+    if(termVal==='low') return 'warn';
+    if(termVal==='mid') return income>100000?'warn':'ok';
+    return 'ok';
+  }
+  const ts=termStatus();
+  if(ts==='ok') oks++; else gaps++;
+  const termAdvice={
+    none:`You have NO term life insurance. This is the single biggest gap in your financial security. Your family needs ${fmt(recTerm)} (15× annual income${loanAmt>0?' + loan outstanding':''}) to maintain their lifestyle if something happens to you. A ₹1 Cr pure term plan at age ${age} costs just ₹800–1,200/month. Get this done this week.`,
+    warn:`Your term cover seems low for your income. You need at least ${fmt(recTerm)}. Increase your cover with a top-up term plan — it's affordable and takes just a few days to process.`,
+    ok:`Your term life cover looks adequate. Review it if your income grows significantly or you take a new loan.`
+  };
+  cards+=makeCard(ts,'🛡️','Term Life Insurance',termAdvice[ts==='bad'?'none':ts==='warn'?'warn':'ok']);
+
+  // HEALTH
+  function healthStatus(){
+    if(healthVal==='none') return 'bad';
+    if(healthVal==='emp') return 'warn';
+    if(healthVal==='low') return 'warn';
+    if(healthVal==='mid') return deps>=3?'warn':'ok';
+    return 'ok';
+  }
+  const hs=healthStatus();
+  if(hs==='ok') oks++; else gaps++;
+  const healthAdvice={
+    bad:`You have NO health insurance. One hospitalisation can cost ₹3–10 lakhs today. A family floater of ₹${deps>=3?'20':'15'} lakhs costs just ₹12,000–18,000/year. This is urgent — get covered before any medical event occurs.`,
+    warn:healthVal==='emp'?`You rely only on employer health cover. This lapses the moment you change jobs. Get a personal family floater of at least ₹${deps>=3?'20':'15'} lakhs — your employer cover can be a bonus on top.`:`Your health cover of below ₹5 lakhs is insufficient for a family of ${deps}. Medical inflation runs at 15%+ per year. Upgrade to at least ₹${deps>=3?'20':'15'} lakhs via a top-up plan — it costs very little extra.`,
+    ok:`Your health cover looks adequate. Consider a super top-up plan for catastrophic coverage at very low additional premium.`
+  };
+  cards+=makeCard(hs,'❤️','Health / Mediclaim Insurance',healthAdvice[hs==='bad'?'bad':hs==='warn'?'warn':'ok']);
+
+  // GOAL PLAN
+  function goalStatus(){
+    if(goalVal==='none') return 'warn';
+    if(goalVal==='yes_low') return 'warn';
+    return 'ok';
+  }
+  const gs=goalStatus();
+  if(gs==='ok') oks++; else gaps++;
+  const goalAdvice={
+    warn:goalVal==='none'?`You don't have a goal-linked insurance plan. A child plan or endowment policy guarantees your child's education/marriage fund even if something happens to you — the insurer pays the future premiums. Consider this alongside your SIPs for milestone protection.`:`Your goal plan has a maturity below ₹10 lakhs — likely insufficient for today's education or wedding costs. Review the maturity amount and consider topping up with a dedicated SIP for the gap.`,
+    ok:`Good — you have a goal plan in place. Make sure the maturity amount is reviewed annually against rising education or wedding costs.`
+  };
+  cards+=makeCard(gs,'🎓','Goal-Plan / Child Insurance',goalAdvice[gs==='warn'?'warn':'ok']);
+
+  // CRITICAL ILLNESS
+  function ciStatus(){
+    if(criticalVal==='none') return 'bad';
+    if(criticalVal==='low') return 'warn';
+    return 'ok';
+  }
+  const cs=ciStatus();
+  if(cs==='ok') oks++; else gaps++;
+  const ciAdvice={
+    bad:`You have no critical illness cover. Cancer, heart attack, or stroke treatment can cost ₹10–50 lakhs — and you lose income during recovery. A ₹20–25 lakh CI rider or standalone plan costs just ₹3,000–6,000/year. This is non-negotiable if you are the primary earner.`,
+    warn:`Your critical illness cover is below ₹10 lakhs. Given current treatment costs, upgrade to at least ₹20 lakhs. It costs very little extra as a rider to your term plan.`,
+    ok:`Your critical illness cover is adequate. Review the covered conditions list annually.`
+  };
+  cards+=makeCard(cs,'🏥','Critical Illness Cover',ciAdvice[cs==='bad'?'bad':cs==='warn'?'warn':'ok']);
+
+  // ACCIDENT
+  function accStatus(){return accidentVal==='yes'?'ok':'warn';}
+  const as=accStatus();
+  if(as==='ok') oks++; else gaps++;
+  const accAdvice={
+    warn:`You don't have personal accident cover. Disability from an accident can permanently reduce your income. A ₹50 lakh accident cover costs less than ₹3,000/year — one of the cheapest protections available.`,
+    ok:`Good — you have accident cover. Ensure the disability cover is at least 5× your annual income.`
+  };
+  cards+=makeCard(as,'⚠️','Personal Accident Cover',accAdvice[as==='warn'?'warn':'ok']);
+
+  document.getElementById('gap-cards').innerHTML=cards;
+
+  const score=Math.round((oks/5)*100);
+  const scoreColor=score>=80?'var(--green)':score>=50?'var(--amber)':'var(--red)';
+  const scoreLabel=score>=80?'Well Protected':score>=50?'Partially Covered':'Vulnerable';
+  const circumference=2*Math.PI*34;
+  const dashArray=`${(score/100)*circumference} ${circumference}`;
+
+  document.getElementById('summary-strip').innerHTML=`
+    <div class="sstrip-cell" style="display:flex;flex-direction:column;align-items:center;justify-content:center">
+      <svg width="70" height="70" viewBox="0 0 80 80">
+        <circle cx="40" cy="40" r="34" fill="none" stroke="var(--border)" stroke-width="6"/>
+        <circle cx="40" cy="40" r="34" fill="none" stroke="${scoreColor}" stroke-width="6" stroke-dasharray="${dashArray}" stroke-dashoffset="${circumference/4}" stroke-linecap="round"/>
+        <text x="40" y="37" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="18" fill="${scoreColor}">${score}%</text>
+        <text x="40" y="50" text-anchor="middle" font-family="Jost,sans-serif" font-size="7" fill="#7a7670" letter-spacing="1">SECURED</text>
+      </svg>
+      <div style="font-size:10px;color:${scoreColor};letter-spacing:0.1em;text-transform:uppercase;margin-top:4px">${scoreLabel}</div>
+    </div>
+    <div class="sstrip-cell"><div class="sstrip-label">Covers adequate</div><div class="sstrip-val sv-ok">${oks} / 5</div></div>
+    <div class="sstrip-cell"><div class="sstrip-label">Gaps to fix</div><div class="sstrip-val ${gaps>2?'sv-bad':gaps>0?'sv-warn':'sv-ok'}">${gaps}</div></div>`;
+}
+
+function makeCard(status,icon,title,advice){
+  const cls=status==='ok'?'status-ok':status==='warn'?'status-warn':'status-bad';
+  const badgeCls=status==='ok'?'badge-ok':status==='warn'?'badge-warn':'badge-bad';
+  const badgeText=status==='ok'?'Adequate':status==='warn'?'Needs Review':'Critical Gap';
+  return `<div class="gap-card ${cls}">
+    <div class="gap-icon">${icon}</div>
+    <div style="flex:1">
+      <div class="gap-title">${title}</div>
+      <div><span class="badge ${badgeCls}">${badgeText}</span></div>
+      <div class="gap-advice">${advice}</div>
+    </div>
+  </div>`;
+}
+
+function goTo(n){
+  document.querySelectorAll('.page').forEach((p,i)=>p.classList.toggle('active',i===n));
+  document.querySelectorAll('.stab').forEach((b,i)=>{b.classList.remove('active','done');if(i===n)b.classList.add('active');else if(i<n)b.classList.add('done');});
+  document.getElementById('prog').style.width=((n+1)/3*100)+'%';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+document.getElementById('snav').addEventListener('click',e=>{const b=e.target.closest('.stab');if(b)goTo(parseInt(b.dataset.p));});
+</script>
+</body>
+</html>
